@@ -1,4 +1,4 @@
-export const List = ({
+export function List({
   title,
   items,
   className,
@@ -6,15 +6,17 @@ export const List = ({
   title: string;
   items: any[];
   className?: string;
-}) => (
-  <div className={className}>
-    <strong>{title}</strong>
-    <ul className="mt2">
-      {items.map((item) => (
-        <li>
-          <strong>{item.name}</strong> - {item.description}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+}) {
+  return (
+    <div className={className}>
+      <strong>{title}</strong>
+      <ul className="mt2">
+        {items.map((item) => (
+          <li key={item.id}>
+            <strong>{item.name}</strong> - {item.description}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

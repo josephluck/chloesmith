@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { projects } from "../projects";
 
-export const DesktopNav = () => {
+export function DesktopNav() {
   const currentProject = "TODO";
   const currentPath = "TODO";
 
@@ -33,7 +33,7 @@ export const DesktopNav = () => {
           {projects
             .filter((project) => project.id !== "portfolio")
             .map((project) => (
-              <div className="mb2 pb1 f7">
+              <div className="mb2 pb1 f7" key={project.id}>
                 <Link href={`/${project.id}`}>
                   <a className={projectClass(project.id)}>{project.name}</a>
                 </Link>
@@ -48,4 +48,4 @@ export const DesktopNav = () => {
       </div>
     </div>
   );
-};
+}

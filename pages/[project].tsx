@@ -1,57 +1,46 @@
 import Head from "next/head";
-import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { projects } from "../projects";
 
-const Project = () => {
+export default function Project() {
   const router = useRouter();
   const { project: projectId } = router.query;
-  const project = projects.find((project) => project.id === projectId);
+  const projectIndex =
+    projects.findIndex((project) => project.id === projectId) || 0;
+  const project = projects[projectIndex];
+  const nextProject = projects[projectIndex + 1]
+    ? projects[projectIndex + 1]
+    : projects[0];
 
   return (
     <>
       <Head>
         <title>Chloe Smith - {project?.name}</title>
       </Head>
-      <div id={project?.id} className="projects-list pa0-ns pa2">
+      <div id={project?.id} className="pa0-ns pa2 ml2-ns">
         {project?.images.map((img) => (
-          <div className="h-100 w-auto dib pl2-ns mb0-ns mb1 js-image fix-vertical-image-height">
-            <div className="dib fl h-100 bg-white relative">
-              <img
-                src={img.src}
-                className="relative z-2 shadow"
-                style={{ minWidth: "200px" }}
-              />
-              <div className="loading">
-                <div className="loading-indicator white relative z-1 serif">
-                  C
-                </div>
+          <div className="bg-white relative" key={img.src}>
+            <img
+              src={img.src}
+              className="relative z-2 shadow"
+              style={{ minWidth: "200px" }}
+            />
+            <div className="loading">
+              <div className="loading-indicator white relative z-1 serif">
+                C
               </div>
             </div>
           </div>
         ))}
         <div className="tc mb2 dn-ns db">
-          <button
-            className="f6 dib ba b--black pv2 ph3 bg-white-95 ttu shadow"
-            onClick={console.log}
-          >
-            Next Project
-          </button>
-        </div>
-        <div
-          className="fixed ma3 db-ns dn z-5"
-          style={{ right: "0px", bottom: "0px" }}
-        >
-          <button
-            className="f6 dib ba b--black pv2 ph3 bg-white-95 ttu shadow"
-            onClick={console.log}
-          >
-            Next
-          </button>
+          <Link href={`/${nextProject.id}`}>
+            <a className="black no-underline f6 dib ba b--black mv2 pv2 ph3 bg-white-95 ttu shadow">
+              Next Project
+            </a>
+          </Link>
         </div>
       </div>
     </>
   );
-};
-
-export default Project;
+}

@@ -5,14 +5,14 @@ import "tachyons/css/tachyons.css";
 import { DesktopNav } from "../components/desktop-nav";
 import { MobileNav } from "../components/mobile-nav";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
       <div className="mobile-nav bg-white">
         <MobileNav />
       </div>
       <div className="flex vh-100 vw-100 bg-near-white-ns">
-        <div className="js-nav-bar desktop-nav bg-white-95 shadow-medium relative z-5">
+        <div className="js-nav-bar desktop-nav bg-white-95 shadow-medium z-5">
           <DesktopNav />
         </div>
 
@@ -22,6 +22,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default MyApp;

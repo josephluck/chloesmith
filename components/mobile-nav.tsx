@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import { projects } from "../projects";
 
-export const MobileNav = () => {
+export function MobileNav() {
   const currentPath = "TODO";
 
   const linkClass = (name: string, invert: boolean = false) => `
@@ -32,7 +33,7 @@ export const MobileNav = () => {
       </Link>
 
       <div className="mid-gray f6">
-        <Link href="/">
+        <Link href={`/${projects[0].id}`}>
           <a className={`mr1 ${linkClass("about", true)}`}>Portfolio</a>
         </Link>
         <Link href="/about">
@@ -41,4 +42,4 @@ export const MobileNav = () => {
       </div>
     </div>
   );
-};
+}

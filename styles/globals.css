@@ -12,7 +12,6 @@ body, html {
 	width: 100%;
 	height: 100%;
 	padding: 0px;
-	height: 0px;
 	font-size: 20px;
 	font-family: 'Apercu Light';
 	text-rendering: optimizeLegibility;
@@ -63,13 +62,6 @@ strong {
 	flex: 1;
 }
 
-@media screen and (min-width: 30em) {
-	.fix-vertical-image-height {
-		height: 100vh;
-		content: 'viewport-units-buggyfill; height: 100vh;';
-	}
-}
-
 .desktop-nav {
 	display: none;
 }
@@ -89,21 +81,8 @@ strong {
 	}
 
 	.content {
-		/* padding-left: 250px; */
-		overflow-y: hidden;
-		overflow-x: auto;
+		padding-left: 250px;
 		flex: 1;
-	}
-
-	.projects-list {
-		white-space: nowrap;
-		height: 100vh;
-	}
-
-	.projects-list img {
-		height: 100%;
-		width: auto;
-		max-width: none;
 	}
 
 	.shadow-ns {
