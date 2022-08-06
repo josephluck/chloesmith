@@ -1,26 +1,151 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@font-face {
+	font-family: "Apercu Light";
+	src: url(/public/fonts/apercu-light-webfont.ttf);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+	font-family: "Apercu Bold";
+  src: url(/public/fonts/apercu-bold-webfont.ttf);
 }
 
-* {
-  box-sizing: border-box;
+body, html {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	height: 0px;
+	font-size: 20px;
+	font-family: 'Apercu Light';
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+	-webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+button {
+	font-family: 'Apercu Light';
+	outline: none;
+}
+
+strong {
+	font-family: 'Apercu Bold';
+}
+
+.serif {
+	font-family: 'Rasa';
+}
+
+.shadow {
+	box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-medium {
+	box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.2);
+}
+
+.bg-white-95 {
+	background: rgba(255, 255, 255, 0.95);
+}
+
+.transition {
+	transition: all 0.2s ease-in-out;
+}
+
+.f7 {
+	font-size: 0.7rem;
+}
+
+.bw-small {
+	border-width: 2px;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+@media screen and (min-width: 30em) {
+	.fix-vertical-image-height {
+		height: 100vh;
+		content: 'viewport-units-buggyfill; height: 100vh;';
+	}
+}
+
+.desktop-nav {
+	display: none;
+}
+
+@media screen and (min-width: 30em) {
+	.mobile-nav {
+		display: none;
+	}
+
+	.desktop-nav {
+		display: block;
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		bottom: 0px;
+		width: 250px;
+	}
+
+	.content {
+		padding-left: 250px;
+		overflow-y: hidden;
+		overflow-x: auto;
+		flex: 1;
+	}
+
+	.projects-list {
+		white-space: nowrap;
+		height: 100vh;
+	}
+
+	.projects-list img {
+		height: 100%;
+		width: auto;
+		max-width: none;
+	}
+
+	.shadow-ns {
+		box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.3);
+	}
+}
+
+.loading {
+	position: absolute;
+	content: ' ';
+	top: 50%;
+	left: 50%;
+	margin-left: -15px;
+	margin-top: -15px;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	border: solid 3px black;
+	overflow: hidden;
+	padding-top: 2px;
+}
+
+.loading:after {
+	content: ' ';
+	position: absolute;
+	top: 0px;
+	left: -50px;
+	height: 100%;
+	width: 30px;
+	background: black;
+	-moz-animation: loading 3s ease-in-out infinite;
+	-ms-animation: loading 3s ease-in-out infinite;
+	-o-animation: loading 3s ease-in-out infinite;
+	animation: loading 3s ease-in-out infinite;
+}
+
+@keyframes loading {
+	from {
+		left: -38px;
+	}
+
+	to {
+		left: 38px;
+	}
 }
